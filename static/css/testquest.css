@@ -1,0 +1,34 @@
+body{
+  background-image: url('../images/lightblue.jpg');
+  margin 0 0 20px 80px;
+}
+.heading{
+  color: white;
+  background-color: blue;
+  width:100%;
+}
+.heading h1{
+  padding: 10px;
+
+}
+.questionblock{
+  background-color:white;
+  border-color:navy;
+  border-style:solid;
+  padding:20px;
+  width:60%;
+}
+.que{
+  font-size:20px;
+  color:navy;
+  font-weight:bold;
+}
+.option{
+  color: blue;
+  margin-left: 20px;
+
+}
+.submit input{
+  width:60px;
+  margin:20px;
+}

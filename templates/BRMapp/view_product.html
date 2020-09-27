@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html lang="en" dir="ltr">
+  <head>
+     <meta charset="utf-8">
+    <title>View Product Records</title>
+    <link rel="stylesheet" href="{% static '/css/BRMstyle.css' %}">
+  </head>
+  <body >
+    <div id="header">
+      <h1>VENDOR PRICE RECORD MANAGEMENT</h1>
+      <div id="nav">
+        <a href="/BRMapp/view-products">View All </a>
+        <a href="/BRMapp/new-product">Add New</a>
+        <a href="/BRMapp/search-product">Search product</a>
+        <a href="/BRMapp/logout">Logout</a>
+        </div>
+        <h2>Hello {{request.session.username}}</h2>
+      </div>
+      <div id="main">
+        <h2> View Product Records</h2>
+        <table>
+          <thead>
+
+            <th>Product Title</th>
+            <th>price</th>
+            <th>company</th>
+            <th>distributer</th>
+
+            </thead>
+              {% for product in products %}
+
+          <tr>
+            <td>{{product.title}}</td>
+            <td>{{product.price}}</td>
+            <td>{{product.company}}</td>
+            <td>{{product.distributer}}</td>
+
+            <td><a class="btn" href="/BRMapp/edit-product?productid={{product.id}}">Edit</a></td>
+
+
+              <td><a class="btn" href="/BRMapp/delete-product?productid={{product.id}}">Delete</a></td>
+
+
+
+            </tr>
+              {% endfor %}
+
+
+        </table>
+
+        </div>
+
+  </body>
+</html>

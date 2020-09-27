@@ -1,0 +1,52 @@
+<<!DOCTYPE html>
+{%load staticfiles %}
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Search Product Records</title>
+    <<link rel="stylesheet" href="{% static '/css/BRMstyle.css'%}">
+  </head>
+  <body>
+    <div id="header">
+      <h1>VENDOR PRICE RECORD MANAGEMENT</h1>
+      <div id="nav">
+        <a href="/BRMapp/view-products">View All </a>
+        <a href="/BRMapp/new-product">Add New</a>
+        <a href="/BRMapp/search-product">Search product</a>
+        <a href="/BRMapp/logout">Logout</a>
+        </div>
+        <h2>'Hello',{{request.session.username}}</h2>
+      </div>
+      <div id="main">
+        <h2>Search Product Record</h2>
+        <form  action="BRMapp/search" method="post">
+        {% csrf_token %}
+        {{form}}
+        <input type="submit" value="Search">
+
+        </form>
+        {% if products %}
+        <table>
+          <thead>
+            <th>Product Title</th>
+            <th>Product Price</th>
+            <th>Product Company</th>
+            <th>Product Distributer</th>
+
+          </thead>
+          {% for product in products %}
+          <tr>
+             <td>{{product.title}}</td>
+             <td>{{product.price}}</td>
+             <td>{{product.company}}</td>
+             <td>{{product.distributer}}</td>
+          </tr>
+          {% endfor %}
+
+        </table>
+        {% endif %}
+        </div>
+
+
+  </body>
+</html>
